@@ -10,14 +10,13 @@ public class Calculator {
         boolean menu = true;
         int choice;
         while (menu) {
+            homemadeCalculator();
+            System.out.println();
             System.out.println("Select operation: ");
             choice = sc.nextInt();
             sc.nextLine();
             switch (choice) {
                 case 1:
-                    homemadeCalculator();
-                    break;
-                case 2:
                     division();
                     break;
                 case 5:
@@ -28,30 +27,31 @@ public class Calculator {
         }
     }
 
-    public static void homemadeCalculator(){
+    public static void homemadeCalculator() {
 
         System.out.println("Press to go: \n 1. to divide \n 2. to multiplicate \n 3. to sum \n 4. to substract \n 5. to quit");
     }
 
     public static void division() {
-        int firstNo;
-        int secondNo;
-        boolean repeat = true;
+        double firstNo;
+        double secondNo;
+        double result;
 
-        do {
+        try {
             System.out.println("Enter first number:");
-            firstNo = sc.nextInt();
+            firstNo = sc.nextDouble();
             sc.nextLine();
             System.out.println("Enter second number:");
-            secondNo = sc.nextInt();
+            secondNo = sc.nextDouble();
             sc.nextLine();
-            try {
-                System.out.println(firstNo + " / " + secondNo + " = " + firstNo / secondNo);
-            } catch (ArithmeticException ae){
+            result = firstNo / secondNo;
+            if (secondNo == 0) {
                 System.out.println("Cannot divide by 0");
-            } catch (InputMismatchException ie){
-                System.out.println("Wrong input");
+            } else {
+                System.out.println(firstNo + " / " + secondNo + " = " + result);
             }
-        } while (repeat);
+        } catch (InputMismatchException ie) {
+            System.out.println("Wrong input");
+        }
     }
 }
