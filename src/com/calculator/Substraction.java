@@ -1,7 +1,6 @@
 package com.calculator;
 
-public class Substraction implements Actionable
-{
+public class Substraction implements Actionable {
     private double result;
 
     public Substraction() {
